@@ -31,3 +31,11 @@
     transform: rotate(360deg);
   }
 }
+
+.card {
+  width: 345px;
+  margin: 2%;
+  }
+.media {
+    height: 140px;
+  }
