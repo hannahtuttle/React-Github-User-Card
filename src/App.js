@@ -2,25 +2,37 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+class App extends React.Component {
+  constructor(){
+    super();
+    this.state = { user: {}}
+  }
+
+  componentDidMount(){
+    this.fetchUsers()
+  }
+
+fetchUsers = () => {
+  fetch('https://api.github.com/users/hannahtuttle')
+  .then(response => {
+    return response.json()
+  })
+  .then(response => {
+    //if(response === null){}
+   return this.setState({user: response}),
+   //console.log(this.state.user),
+    console.log(this.state.user)
+    })
+  .catch((err) => 
+    console.log(err))
+}
+
+  render(){
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     
     </div>
   );
-}
+}}
 
 export default App;
